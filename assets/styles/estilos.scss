@@ -1,0 +1,29 @@
+/*FUENTES*/
+@font-face{
+    font-family: "fajala";
+    src: url(../fonts/fuente.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*GENERALES*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif, Helvetica, Arial;
+    text-decoration: none;
+}
+
+.clearfix{
+    clear: both;
+    float: none;
+}
+
+
+@import "components/nav";
+@import "components/body";
+@import "components/alerts";
+@import "components/content";
+@import "components/sideBar";
+@import "components/footer";
+
