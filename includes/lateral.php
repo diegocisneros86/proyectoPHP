@@ -3,6 +3,16 @@
 <!-- Barra Lateral -->
 <aside id="sidebar">
 
+    <div id="buscador" class="bloque">
+        <h3>Buscar</h3>
+        
+        <form action="find.php" method="POST">
+            <input type="text" name="busqueda">
+            <input type="submit" value="Buscar">
+        </form>
+
+    </div>
+
     <?php if (isset($_SESSION['user'])) : ?>
     <div id="logged_user" class="bloque">
         <h3>Bienvenido, <?=$_SESSION['user']['nombre'].' '.$_SESSION['user']['apellidos']; ?></h3>

@@ -53,13 +53,17 @@ function getCategory($conexion, $id){
     return $result;
 }
 
-function getEntries($conexion, $limit = null, $category = null){
+function getEntries($conexion, $limit = null, $category = null, $find = null){
     $sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
             "INNER JOIN categorias c ON e.categoria_id = c.id ";
             
 
     if (!empty($category)) {
         $sql .= "WHERE e.categoria_id = $category ";
+    }
+
+    if (!empty($find)) {
+        $sql .= "WHERE e.titulo LIKE '%$find%' ";
     }
             
     $sql .= "ORDER BY e.id DESC ";
@@ -92,3 +96,4 @@ function getEntry($conexion, $id){
 
     return $result;
 }
+

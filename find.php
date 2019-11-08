@@ -1,21 +1,20 @@
-<?php require_once 'includes/cabecera.php'; ?>
-<?php require_once 'includes/lateral.php'; ?>
 
 <?php
-    $actual_category = getCategory($db, $_GET['id']);
-
-    if (!isset($actual_category['id'])) {
+    if (!isset($_POST['busqueda'])) {
         header("Location: index.php");
     }
 ?>
+<?php require_once 'includes/cabecera.php'; ?>
+<?php require_once 'includes/lateral.php'; ?>
 
 
 <!-- Caja Principal -->
 <div id="principal">
-    <h1>Entradas de <?=$actual_category['nombre']?></h1>
+    <h1>Búsqueda: <?=$_POST['busqueda']?></h1>
 
     <?php
-        $entradas = getEntries($db, null, $_GET['id']);
+        $entradas = getEntries($db, null, null, $_POST['busqueda']);
+
         if (!empty($entradas) && mysqli_num_rows($entradas) >= 1):
             while($entrada = mysqli_fetch_assoc($entradas)):
     ?>
